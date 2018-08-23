@@ -30,16 +30,16 @@
 {
     UIView *bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KNavHeight_Sys)];
     bgView.backgroundColor = [UIColor clearColor];
-    self.customNavItem.titleView = bgView;
+    [self.customNavView addSubview:bgView];
     UIButton *imgBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [imgBtn setImage:[UIImage imageNamed:@"toutiao_icon"] forState:UIControlStateNormal];
     [bgView addSubview:imgBtn];
     imgBtn.adjustsImageWhenHighlighted = NO;
-    [imgBtn setFrame:CGRectMake(0, (KNavHeight_Sys-KStatusBarHeight_Sys - 22 * kAutoLayoutWidth) / 2, 90 * kAutoLayoutWidth, 22 * kAutoLayoutWidth)];
+    [imgBtn setFrame:CGRectMake(15, (KNavHeight_Sys-KStatusBarHeight_Sys - 22 * kAutoLayoutWidth) / 2 + KStatusBarHeight_Sys, 90 * kAutoLayoutWidth, 22 * kAutoLayoutWidth)];
     UIButton *searchButton = [[UIButton alloc]init];
     searchButton.backgroundColor = [UIColor whiteColor];
     [searchButton addTarget:self action:@selector(searchAction) forControlEvents:UIControlEventTouchUpInside];
-    searchButton.frame = CGRectMake(imgBtn.frame.origin.x+imgBtn.frame.size.width + 5, (KNavHeight_Sys-KStatusBarHeight_Sys - 26 * kAutoLayoutWidth) / 2, 245 * kAutoLayoutWidth, 26 * kAutoLayoutWidth);
+    searchButton.frame = CGRectMake(imgBtn.frame.origin.x+imgBtn.frame.size.width + 5, (KNavHeight_Sys-KStatusBarHeight_Sys - 26 * kAutoLayoutWidth) / 2 + KStatusBarHeight_Sys, 245 * kAutoLayoutWidth, 26 * kAutoLayoutWidth);
     [bgView addSubview:searchButton];
     searchButton.layer.cornerRadius = 12 * kAutoLayoutWidth;
     searchButton.layer.masksToBounds = YES;
